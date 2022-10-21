@@ -10,15 +10,13 @@ using MVVM_Example_dotnet6.interfaces;
 
 namespace MVVM_Example_dotnet6.behavior
 {
-    public class FrameBehavior :Behavior<Frame>
+    public class FrameBehavior : Behavior<Frame>
     {
         private bool _isWork;
         public string NavigationSource
         {
-
-            get;set;
-            //get { return (string)GetValue(NavigationSourceProperty); }
-            //set { SetValue(NavigationSourceProperty, value); }
+            get { return (string)GetValue(NavigationSourceProperty); }
+            set { SetValue(NavigationSourceProperty, value); }
         }
 
         
@@ -54,6 +52,37 @@ namespace MVVM_Example_dotnet6.behavior
                 pagecontents.DataContext is INavigationAware navigationAware)
             {
                 navigationAware?.OnNavigating(sender, e);
+            }
+        }
+
+        public static DependencyProperty NavigationSourceProperty = DependencyProperty.Register(nameof(NavigationSource), typeof(string), typeof(FrameBehavior), new PropertyMetadata(null, NavigationSourceChanged));
+
+        private static void NavigationSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var behavior = (FrameBehavior)d;
+            if (behavior._isWork)
+            {
+                return;
+            }
+            behavior.Navigate();
+        }
+
+        private void Navigate()
+        {
+            switch(NavigationSource)
+            {
+                case "GoBack":
+                    if(AssociatedObject.CanGoBack)
+                    {
+                        AssociatedObject.GoBack();
+                    }
+                    break;
+                case "":
+                case null:
+                    break;
+                default:
+                    AssociatedObject.Navigate(new Uri(NavigationSource, UriKind.RelativeOrAbsolute));
+                    break;
             }
         }
     }

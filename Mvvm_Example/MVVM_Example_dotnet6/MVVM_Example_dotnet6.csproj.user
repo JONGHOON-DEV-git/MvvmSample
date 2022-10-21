@@ -7,6 +7,20 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="views\CustomPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="views\HomePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="views\CustomPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="views\HomePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

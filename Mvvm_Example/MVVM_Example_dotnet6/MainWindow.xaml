@@ -1,23 +1,37 @@
-﻿<Window x:Class="MVVM_Example_dotnet6.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MVVM_Example_dotnet6"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <DockPanel>
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="_File">
-                    <MenuItem Header="_New" />
-                    <MenuItem Header="_Open" />
-                    <MenuItem Header="_Save" />
-                    <Separator />
-                    <MenuItem Header="_Exit" />
-                </MenuItem>
-            </Menu>
-            <Frame />
-        </DockPanel>
-    </Grid>
+﻿<Window
+    x:Class="MVVM_Example_dotnet6.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:behaviors="clr-namespace:MVVM_Example_dotnet6.behavior"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:MVVM_Example_dotnet6"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="{Binding Title}"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New" />
+                <MenuItem Header="_Open" />
+                <MenuItem Header="_Save" />
+                <Separator />
+                <MenuItem Header="_Exit" />
+            </MenuItem>
+            <MenuItem Header="_Master">
+                <MenuItem Header="_Code Management" />
+                <MenuItem
+                    Command="{Binding NavigateCommand}"
+                    CommandParameter="views/CustomPage.xaml"
+                    Header="C_ustomer Management" />
+            </MenuItem>
+        </Menu>
+        <Frame NavigationUIVisibility="Hidden">
+            <b:Interaction.Behaviors>
+                <behaviors:FrameBehavior NavigationSource="{Binding NavigationSource, Mode=TwoWay}" />
+            </b:Interaction.Behaviors>
+        </Frame>
+    </DockPanel>
 </Window>

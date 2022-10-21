@@ -33,6 +33,8 @@ namespace MVVM_Example_dotnet6
         {
             var services = new ServiceCollection();
             services.AddTransient(typeof(MainViewModel));
+            services.AddTransient(typeof(HomeViewModel));
+            services.AddTransient(typeof(CustomViewModel));
             return services.BuildServiceProvider();
         }
     }
