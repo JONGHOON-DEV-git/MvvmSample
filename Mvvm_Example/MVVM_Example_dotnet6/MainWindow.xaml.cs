@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVVM_Example_dotnet6.viewmodels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace MVVM_Example_dotnet6
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = App.Current.Services.GetService(typeof(MainViewModel));
         }
     }
 }
