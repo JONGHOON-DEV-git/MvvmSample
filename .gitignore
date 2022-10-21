@@ -1,2 +1,6 @@
 .vs
-*/Mvvm_Example/obj/Debug
+*/Mvvm_Example/obj
+*/Mvvm_Example/bin
+*/MVVM_Example_dotnet6/obj
+*/MVVM_Example_dotnet6/bin
+/Mvvm_Example/packages

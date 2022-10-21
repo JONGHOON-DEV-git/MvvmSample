@@ -8,7 +8,7 @@ namespace Mvvm_Example
 {
     public class Model
     {
-        String ModelName { get; set; }
-        int ModelNO { get; set; }
+        public String ModelName { get; set; }
+        public int ModelNO { get; set; }
     }
 }
