@@ -15,6 +15,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="styles\_ConverterRd.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="views\CustomPage.xaml">
       <SubType>Designer</SubType>
     </Page>

@@ -18,8 +18,6 @@ namespace MVVM_Example_dotnet6
         public App()
         {
             Services = ConfigureServices();
-
-            
         }
 
         public IServiceProvider Services { get; }

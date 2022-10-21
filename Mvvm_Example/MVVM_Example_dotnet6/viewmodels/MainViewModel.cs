@@ -34,6 +34,7 @@ namespace MVVM_Example_dotnet6.viewmodels
             NavigateCommand = new RelayCommand<String>(OnNavigate);
 
             WeakReferenceMessenger.Default.Register<NavigationMessage>(this, OnNavigationMessage);
+            WeakReferenceMessenger.Default.Register<BusyMessage>(this, OnBusyMessage);
         }
 
         private void OnNavigationMessage(object recipient, NavigationMessage message)
@@ -44,7 +45,45 @@ namespace MVVM_Example_dotnet6.viewmodels
         private void OnNavigate(string? pageUri)
         {
             NavigationSource = pageUri;
-
         }
+
+        private IList<BusyMessage> _busys = new List<BusyMessage>();
+
+        private bool _isBusy;
+        public bool IsBusy
+        {
+            get
+            {
+                return _isBusy;
+            }
+            set
+            {
+                SetProperty(ref _isBusy, value);
+            }
+        }
+        
+        private void OnBusyMessage(object recipient, BusyMessage message)
+        {
+            if(message.Value)
+            {
+                var existBusy = _busys.FirstOrDefault(x => x.BusyId == message.BusyId);
+                if(existBusy != null)
+                {
+                    return;
+                }
+                _busys.Add(message);
+            }
+            else
+            {
+                var existBusy = _busys.FirstOrDefault(x => x.BusyId == message.BusyId);
+                if(existBusy == null)
+                {
+                    return;
+                }
+                _busys.Remove(message);
+            }
+            IsBusy = _busys.Any();
+        }
+
     }
 }
