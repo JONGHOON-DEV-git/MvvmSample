@@ -5,7 +5,12 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvvm_Example", "Mvvm_Example\Mvvm_Example.csproj", "{1C62C558-AAF4-4677-89F2-D09DBED63BB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVM_Example_dotnet6", "MVVM_Example_dotnet6\MVVM_Example_dotnet6.csproj", "{0C6BF3DC-DEDE-4289-90EC-141E08CC2B90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVVM_Example_dotnet6", "MVVM_Example_dotnet6\MVVM_Example_dotnet6.csproj", "{0C6BF3DC-DEDE-4289-90EC-141E08CC2B90}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4B887DCE-23B2-43EB-A68C-F473C0178DA9}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
