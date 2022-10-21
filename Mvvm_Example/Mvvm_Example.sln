@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.2092
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvvm_Example", "Mvvm_Example\Mvvm_Example.csproj", "{1C62C558-AAF4-4677-89F2-D09DBED63BB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVM_Example_dotnet6", "MVVM_Example_dotnet6\MVVM_Example_dotnet6.csproj", "{0C6BF3DC-DEDE-4289-90EC-141E08CC2B90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{1C62C558-AAF4-4677-89F2-D09DBED63BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C62C558-AAF4-4677-89F2-D09DBED63BB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C62C558-AAF4-4677-89F2-D09DBED63BB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C6BF3DC-DEDE-4289-90EC-141E08CC2B90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C6BF3DC-DEDE-4289-90EC-141E08CC2B90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C6BF3DC-DEDE-4289-90EC-141E08CC2B90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C6BF3DC-DEDE-4289-90EC-141E08CC2B90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

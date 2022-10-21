@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVVM_Example_dotnet6.viewmodels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,17 +14,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Mvvm_Example
+namespace MVVM_Example_dotnet6
 {
     /// <summary>
-    /// MainWindow.xaml에 대한 상호 작용 논리
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new mvvmbase();
+            DataContext = App.Current.Services.GetService(typeof(MainViewModel));
         }
     }
 }
