@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Extensions.DependencyInjection;
+using MVVM_Example_dotnet6.Controls;
 using MVVM_Example_dotnet6.viewmodels;
 
 namespace MVVM_Example_dotnet6
@@ -33,6 +34,7 @@ namespace MVVM_Example_dotnet6
             services.AddTransient(typeof(MainViewModel));
             services.AddTransient(typeof(HomeViewModel));
             services.AddTransient(typeof(CustomViewModel));
+            services.AddTransient(typeof(AboutControl));
             return services.BuildServiceProvider();
         }
     }

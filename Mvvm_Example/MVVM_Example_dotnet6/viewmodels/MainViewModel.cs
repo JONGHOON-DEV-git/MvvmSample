@@ -35,6 +35,7 @@ namespace MVVM_Example_dotnet6.viewmodels
 
             WeakReferenceMessenger.Default.Register<NavigationMessage>(this, OnNavigationMessage);
             WeakReferenceMessenger.Default.Register<BusyMessage>(this, OnBusyMessage);
+            WeakReferenceMessenger.Default.Register<LayerPopupMessage>(this, OnLayerPopupMessage);
         }
 
         private void OnNavigationMessage(object recipient, NavigationMessage message)
@@ -80,10 +81,43 @@ namespace MVVM_Example_dotnet6.viewmodels
                 {
                     return;
                 }
-                _busys.Remove(message);
+                _busys.Remove(existBusy);
             }
             IsBusy = _busys.Any();
         }
 
+        private bool _showLayerPopup;
+
+        public bool ShowLayerPopup
+        {
+            get
+            {
+                return _showLayerPopup;
+            }
+            set
+            {
+                SetProperty(ref _showLayerPopup, value);
+            }
+        }
+
+        private string _controlName;
+        public string ControlName
+        {
+            get
+            {
+                return _controlName;
+            }
+            set
+            {
+                SetProperty(ref _controlName, value);
+            }
+        }
+
+        private  void OnLayerPopupMessage(object recipient, LayerPopupMessage message)
+        {
+            ShowLayerPopup = message.Value;
+            ControlName = message.ControlName;
+        }
+        
     }
 }

@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Controls\AboutControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="views\CustomPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -15,6 +18,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Controls\AboutControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="styles\_ConverterRd.xaml">
       <SubType>Designer</SubType>
     </Page>

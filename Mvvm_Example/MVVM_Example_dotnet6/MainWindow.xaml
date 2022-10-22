@@ -24,7 +24,7 @@
                 <MenuItem Header="_Code Management" />
                 <MenuItem
                     Command="{Binding NavigateCommand}"
-                    CommandParameter="Views/CustomerPage.xaml"
+                    CommandParameter="views/CustomPage.xaml"
                     Header="C_ustomer Management" />
             </MenuItem>
         </Menu>
@@ -34,24 +34,24 @@
                     <behaviors:FrameBehavior NavigationSource="{Binding NavigationSource, Mode=TwoWay}" />
                 </b:Interaction.Behaviors>
             </Frame>
-            <Border Background="#66000000" Visibility="{Binding IsBusy, Converter={StaticResource BoolToVisibilityConverter}}">
+            <Border Background="#66000000" Visibility="{Binding ShowLayerPopup, Converter={StaticResource BoolToVisibilityConverter}}">
                 <Border
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Background="White"
                     CornerRadius="5">
-                    <StackPanel Width="100" Margin="10">
-                        <ProgressBar Height="10" IsIndeterminate="True" />
-                        <TextBlock
-                            Margin="0,5,0,0"
-                            HorizontalAlignment="Center"
-                            Text="Busy..." />
-                    </StackPanel>
                     <Border.Effect>
                         <DropShadowEffect />
                     </Border.Effect>
+                    <ContentControl Width="400" MinHeight="200">
+                        <b:Interaction.Behaviors>
+                            <behaviors:ContentControlBehavior ControlName="{Binding ControlName}"
+                                                              ShowLayerPopup="{Binding ShowLayerPopup}"/>
+                        </b:Interaction.Behaviors>
+                    </ContentControl>
                 </Border>
             </Border>
+            
         </Grid>
     </DockPanel>
 </Window>
